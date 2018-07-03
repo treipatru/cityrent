@@ -3,14 +3,13 @@
     <vue-fuse
       :keys="keys"
       :list="citiesData"
-      :defaultAll="true"
-      :threshold="0.2"
+      :threshold="0.4"
       event-name="fuseResultsUpdated"
     >
     </vue-fuse>
 
     <div
-      class="bracket-container"
+      v-bind:class="['bracket-container', 'lvl-' + (index + 1)]"
       v-for="(bracket, index) in brackets"
       :key="index"
       v-if="shouldRenderBracket(index)"
@@ -26,7 +25,10 @@
         v-for="(city,el) in filteredCities[index]"
         :key="el"
       >
-        <p>{{city.cost}} - {{city.area}}, {{city.country}}</p>
+        <span class="cost">{{city.cost}} </span>
+        <span class="area">{{city.area}} </span>
+        <span class="country">{{city.country}} </span>
+        <span class="continent">{{city.continent}}</span>
       </div>
     </div>
   </div>
@@ -93,16 +95,32 @@
 
 
 <style scoped lang="scss">
+  $colors-background:  #ffe17e #b66cf7 #00f18d #ff6fc5 #01af46
+                       #b596ff #5ba300 #208fff #d9fc6b #ffa3c9
+                       #75fbff #e05f3d #00adae #b9728b #95a872;
+
   .bracket-container {
     position: relative;
+
+    @each $current-color in $colors-background {
+      $i: index($colors-background, $current-color);
+      &.lvl-#{$i} {
+        background: $current-color;
+        color: #424242;
+        padding: 1.3rem 0 1.5rem 0;
+      }
+    }
 
     .bracket-price {
       text-align: left;
       margin: 0;
       padding: 0;
       position: absolute;
-      left: 0;
-      top: 0;
+      left: 0.5rem;
+      top: 1rem;
+    }
+
+    .city {
     }
   }
 </style>
