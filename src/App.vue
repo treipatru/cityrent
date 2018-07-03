@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Cities :citiesData="citiesData"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
+import Cities from './components/Cities.vue';
+import json from './json/data';
 
 export default {
   name: 'app',
   components: {
-    HelloWorld,
+    Cities,
+  },
+  data: function () {
+    return {
+      citiesData: json.data,
+    };
   },
 };
 </script>
 
 <style lang="scss">
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
