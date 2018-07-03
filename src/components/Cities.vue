@@ -1,57 +1,78 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank">eslint</a></li>
-    </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank">Twitter</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
-    </ul>
+  <div class="">
+      <div
+          class="bracket-container"
+          v-for="bracket, index in brackets"
+          :key="index"
+      >
+          <h2
+              class="bracket-price"
+          >
+              {{bracket}}
+          </h2>
+
+          <div class="city"
+               v-for="city,index in filteredCities[index]"
+               :key="index"
+          >
+              <p>{{city.cost}} - {{city.area}}, {{city.country}}</p>
+          </div>
+      </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Cities',
+  computed: {
+    filteredCities: function () {
+      let vm = this;
+      return vm.brackets.map((val, index) => {
+        let bracketCities = [];
+
+        for (let city of vm.citiesData) {
+          const next = vm.brackets[index + 1];
+
+          if (next) {
+            if (city.cost >= val && city.cost < next) {
+              bracketCities.push(city);
+            }
+          } else {
+            if (city.cost >= val) {
+              bracketCities.push(city);
+            }
+          }
+        }
+        return bracketCities;
+      });
+    },
+  },
+  data: function () {
+    return {
+      brackets: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1250, 1500, 2000, 3000],
+    };
+  },
   props: {
-    msg: String,
+    citiesData: {
+      type: Array,
+      required: true,
+    },
   },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.bracket-container {
+    position: relative;
+
+    .bracket-price {
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
 }
 </style>
