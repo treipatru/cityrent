@@ -27,20 +27,22 @@ export default {
   computed: {
     filteredCities: function () {
       let vm = this;
+
       return vm.brackets.map((val, index) => {
         let bracketCities = [];
 
         for (let city of vm.citiesData) {
           const next = vm.brackets[index + 1];
-
-          if (next) {
+          // It's a bit dense because we're doing multiple checks to eliminate
+          // redundant iterations.
+          if (next && city.cost >= val) {
             if (city.cost >= val && city.cost < next) {
               bracketCities.push(city);
+            } else if (city.cost >= next) {
+              break;
             }
-          } else {
-            if (city.cost >= val) {
-              bracketCities.push(city);
-            }
+          } else if (!next && city.cost >= val) {
+            bracketCities.push(city);
           }
         }
         return bracketCities;
