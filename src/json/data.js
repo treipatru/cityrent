@@ -548,8 +548,8 @@ const data = [
   {
     cost: 328,
     area: 'Ostrava',
-    country: 'Czech',
-    continent: 'Republic Europe',
+    country: 'Czech Republic',
+    continent: 'Europe',
   },
   {
     cost: 329,
@@ -764,8 +764,8 @@ const data = [
   {
     cost: 387,
     area: 'Ad Dammam',
-    country: 'Saudi',
-    continent: 'Arabia Middle East',
+    country: 'Saudi Arabia',
+    continent: 'Middle East',
   },
   {
     cost: 389,
@@ -782,8 +782,8 @@ const data = [
   {
     cost: 390,
     area: 'San Salvador',
-    country: 'El',
-    continent: 'Salvador North America',
+    country: 'El Salvador',
+    continent: 'North America',
   },
   {
     cost: 391,
@@ -812,8 +812,8 @@ const data = [
   {
     cost: 397,
     area: 'Olomouc',
-    country: 'Czech',
-    continent: 'Republic Europe',
+    country: 'Czech Republic',
+    continent: 'Europe',
   },
   {
     cost: 411,
@@ -854,8 +854,8 @@ const data = [
   {
     cost: 426,
     area: 'Port Elizabeth',
-    country: 'South',
-    continent: 'Africa Africa',
+    country: 'South Africa',
+    continent: 'Africa',
   },
   {
     cost: 427,
@@ -902,8 +902,8 @@ const data = [
   {
     cost: 440,
     area: 'Jeddah (Jiddah)',
-    country: 'Saudi',
-    continent: 'Arabia Middle East',
+    country: 'Saudi Arabia',
+    continent: 'Middle East',
   },
   {
     cost: 441,
@@ -1016,20 +1016,20 @@ const data = [
   {
     cost: 476,
     area: 'Pretoria',
-    country: 'South',
-    continent: 'Africa Africa',
+    country: 'South Africa',
+    continent: 'Africa',
   },
   {
     cost: 479,
     area: 'Al Khobar',
-    country: 'Saudi',
-    continent: 'Arabia Middle East',
+    country: 'Saudi Arabia',
+    continent: 'Middle East',
   },
   {
     cost: 481,
     area: 'Durban',
-    country: 'South',
-    continent: 'Africa Africa',
+    country: 'South Africa',
+    continent: 'Africa',
   },
   {
     cost: 493,
@@ -1046,8 +1046,8 @@ const data = [
   {
     cost: 503,
     area: 'Riyadh',
-    country: 'Saudi',
-    continent: 'Arabia Middle East',
+    country: 'Saudi Arabia',
+    continent: 'Middle East',
   },
   {
     cost: 511,
@@ -1184,8 +1184,8 @@ const data = [
   {
     cost: 588,
     area: 'Brno',
-    country: 'Czech',
-    continent: 'Republic Europe',
+    country: 'Czech Republic',
+    continent: 'Europe',
   },
   {
     cost: 589,
@@ -1322,8 +1322,8 @@ const data = [
   {
     cost: 656,
     area: 'Derby',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 656,
@@ -1388,14 +1388,14 @@ const data = [
   {
     cost: 686,
     area: 'Johannesburg',
-    country: 'South',
-    continent: 'Africa Africa',
+    country: 'South Africa',
+    continent: 'Africa',
   },
   {
     cost: 686,
     area: "St. John's",
-    country: 'NL,',
-    continent: 'Canada North America',
+    country: 'NL, Canada',
+    continent: 'North America',
   },
   {
     cost: 687,
@@ -1436,8 +1436,8 @@ const data = [
   {
     cost: 724,
     area: 'Belfast',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 727,
@@ -1538,8 +1538,8 @@ const data = [
   {
     cost: 757,
     area: 'Nottingham',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 758,
@@ -1574,8 +1574,8 @@ const data = [
   {
     cost: 762,
     area: 'Liverpool',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 762,
@@ -1598,14 +1598,14 @@ const data = [
   {
     cost: 765,
     area: 'Sheffield',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 765,
     area: 'Prague',
-    country: 'Czech',
-    continent: 'Republic Europe',
+    country: 'Czech Republic',
+    continent: 'Europe',
   },
   {
     cost: 766,
@@ -1634,8 +1634,8 @@ const data = [
   {
     cost: 774,
     area: 'Norwich',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 775,
@@ -1676,8 +1676,8 @@ const data = [
   {
     cost: 784,
     area: 'Newcastle Upon Tyne',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 785,
@@ -1718,8 +1718,8 @@ const data = [
   {
     cost: 808,
     area: 'Coventry',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 810,
@@ -1850,14 +1850,14 @@ const data = [
   {
     cost: 859,
     area: 'Glasgow',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 865,
     area: 'Cardiff',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 865,
@@ -2000,8 +2000,8 @@ const data = [
   {
     cost: 903,
     area: 'Birmingham',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 905,
@@ -2012,8 +2012,8 @@ const data = [
   {
     cost: 907,
     area: 'York',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 907,
@@ -2072,8 +2072,8 @@ const data = [
   {
     cost: 926,
     area: 'Leeds',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 926,
@@ -2126,8 +2126,8 @@ const data = [
   {
     cost: 943,
     area: 'Manchester',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 944,
@@ -2210,8 +2210,8 @@ const data = [
   {
     cost: 973,
     area: 'Exeter',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 974,
@@ -2228,14 +2228,14 @@ const data = [
   {
     cost: 981,
     area: 'Aberdeen',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 984,
     area: 'Portsmouth',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 985,
@@ -2270,8 +2270,8 @@ const data = [
   {
     cost: 1010,
     area: 'Southampton',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1017,
@@ -2366,8 +2366,8 @@ const data = [
   {
     cost: 1057,
     area: 'Edinburgh',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1060,
@@ -2558,8 +2558,8 @@ const data = [
   {
     cost: 1140,
     area: 'Milton Keynes',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1141,
@@ -2588,8 +2588,8 @@ const data = [
   {
     cost: 1149,
     area: 'Bath',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1156,
@@ -2636,8 +2636,8 @@ const data = [
   {
     cost: 1222,
     area: 'Bristol',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1222,
@@ -2726,8 +2726,8 @@ const data = [
   {
     cost: 1249,
     area: 'Reading',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1252,
@@ -2840,8 +2840,8 @@ const data = [
   {
     cost: 1371,
     area: 'Brighton',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1375,
@@ -2912,8 +2912,8 @@ const data = [
   {
     cost: 1445,
     area: 'Cambridge',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1451,
@@ -2996,8 +2996,8 @@ const data = [
   {
     cost: 1627,
     area: 'Oxford',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 1634,
@@ -3188,8 +3188,8 @@ const data = [
   {
     cost: 2341,
     area: 'London',
-    country: 'United',
-    continent: 'Kingdom Europe',
+    country: 'United Kingdom',
+    continent: 'Europe',
   },
   {
     cost: 2403,
