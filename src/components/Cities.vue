@@ -1,34 +1,47 @@
 <template>
-  <div class="">
-    <vue-fuse
-      :keys="keys"
-      :list="citiesData"
-      :threshold="0.4"
-      event-name="fuseResultsUpdated"
-    >
-    </vue-fuse>
-
-    <div
-      v-bind:class="['bracket-container', 'lvl-' + (index + 1)]"
-      v-for="(bracket, index) in brackets"
-      :key="index"
-      v-if="shouldRenderBracket(index)"
-    >
-      <h2
-        class="bracket-price"
+  <div class="grid">
+    <div class="col-12 search">
+      <vue-fuse
+        :keys="keys"
+        :list="citiesData"
+        :threshold="0.2"
+        eventName="fuseResultsUpdated"
       >
-        {{bracket}}
-      </h2>
+      </vue-fuse>
+    </div>
 
+
+    <div class="col-12">
       <div
-        class="city"
-        v-for="(city,el) in filteredCities[index]"
-        :key="el"
+        v-bind:class="['bracket-container', 'grid', 'lvl-' + (index + 1)]"
+        v-for="(bracket, index) in brackets"
+        :key="index"
+        v-if="shouldRenderBracket(index)"
       >
-        <span class="cost">{{city.cost}} </span>
-        <span class="area">{{city.area}} </span>
-        <span class="country">{{city.country}} </span>
-        <span class="continent">{{city.continent}}</span>
+        <div class="col-1">
+          <h2
+            class="bracket-price"
+          >
+            {{bracket}}
+          </h2>
+        </div>
+
+        <div class="col-11 grid-2_sm-1">
+          <div
+            :class="['city', 'col']"
+            v-for="(city,el) in filteredCities[index]"
+            :key="el"
+          >
+            <div class="title">
+              <span class="area">{{city.area}}</span>
+              <span class="cost"><sup>{{city.cost}}</sup></span>
+            </div>
+            <div class="location">
+              <span class="country">{{city.country}}, </span>
+              <span class="continent">{{city.continent}}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -73,7 +86,7 @@
     data: function () {
       return {
         brackets: [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1250, 1500, 2000, 3000],
-        keys: ['cost', 'area', 'continent', 'country'],
+        keys: ['area', 'continent', 'country'],
         results: [],
       };
     },
@@ -115,12 +128,31 @@
       text-align: left;
       margin: 0;
       padding: 0;
-      position: absolute;
-      left: 0.5rem;
-      top: 1rem;
     }
 
     .city {
+
+      .title {
+        padding-bottom: 0.3rem;
+
+        .area {
+          font-size: 1.4rem;
+          padding-right: 0.3rem;
+        }
+        .cost {
+          font-size: 0.8rem;
+          font-weight: 300;
+          opacity: 0.8;
+        }
+      }
+
+      .location {
+        font-size: 0.9rem;
+        opacity: 0.6;
+
+        .country {
+        }
+      }
     }
   }
 </style>
