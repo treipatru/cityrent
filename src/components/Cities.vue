@@ -5,6 +5,13 @@
         :keys="keys"
         :list="citiesData"
         :threshold="0.2"
+        :tokenize="true"
+        :matchAllTokens="true"
+        :findAllMatches="true"
+        :minMatchCharLength="3"
+        :location="0"
+        :distance="100"
+        :maxPatternLength="32"
         eventName="fuseResultsUpdated"
       >
       </vue-fuse>
@@ -54,26 +61,25 @@
     computed: {
       filteredCities: function () {
         let vm = this;
+        let filtered = vm.brackets.map( () => []);
 
-        return vm.brackets.map((val, index) => {
-          let bracketCities = [];
+        for (let city of vm.results) {
+          for (let i in vm.brackets) {
+            i = parseInt(i);
 
-          for (let city of vm.results) {
-            const next = vm.brackets[index + 1];
-            // It's a bit dense because we're doing multiple checks to eliminate
-            // redundant iterations.
-            if (next && city.cost >= val) {
-              if (city.cost >= val && city.cost < next) {
-                bracketCities.push(city);
-              } else if (city.cost >= next) {
-                break;
+            if((i + 1) === vm.brackets.length) {
+              if (city.cost >= vm.brackets[i]) {
+                filtered[i].push(city)
               }
-            } else if (!next && city.cost >= val) {
-              bracketCities.push(city);
+            } else {
+              if (city.cost >= vm.brackets[i] && city.cost < vm.brackets[i + 1]) {
+                filtered[i].push(city)
+              }
             }
           }
-          return bracketCities;
-        });
+        }
+
+        return filtered;
       },
     },
 
