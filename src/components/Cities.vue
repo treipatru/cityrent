@@ -1,20 +1,26 @@
 <template>
   <div class="grid">
-    <div class="col-12 search">
-      <vue-fuse
-        :keys="keys"
-        :list="citiesData"
-        :threshold="0.2"
-        :tokenize="true"
-        :matchAllTokens="true"
-        :findAllMatches="true"
-        :minMatchCharLength="3"
-        :location="0"
-        :distance="100"
-        :maxPatternLength="32"
-        eventName="fuseResultsUpdated"
-      >
-      </vue-fuse>
+    <div class="col-12 toolbar grid-noGutter">
+        <div
+          class="col-4_sm-10"
+          data-push-left="off-4_sm-1"
+        >
+          <vue-fuse
+            class="searchbox"
+            :keys="keys"
+            :list="citiesData"
+            :threshold="0.2"
+            :tokenize="true"
+            :matchAllTokens="true"
+            :findAllMatches="true"
+            :minMatchCharLength="3"
+            :location="0"
+            :distance="100"
+            :maxPatternLength="32"
+            eventName="fuseResultsUpdated"
+          >
+          </vue-fuse>
+        </div>
     </div>
 
 
@@ -25,7 +31,7 @@
         :key="index"
         v-if="shouldRenderBracket(index)"
       >
-        <div class="col-1">
+        <div class="col-1_xs-2">
           <h2
             class="bracket-price"
           >
@@ -33,9 +39,9 @@
           </h2>
         </div>
 
-        <div class="col-11 grid-2_sm-1">
+        <div class="col-11_xs-10 grid">
           <div
-            :class="['city', 'col']"
+            :class="['city', 'col-4_xs-12_sm-6']"
             v-for="(city,el) in filteredCities[index]"
             :key="el"
           >
@@ -118,13 +124,33 @@
                        #b596ff #5ba300 #208fff #d9fc6b #ffa3c9
                        #75fbff #e05f3d #00adae #b9728b #95a872;
 
+  .toolbar {
+    margin: 1rem 0;
+    padding: 0;
+
+    .searchbox {
+      width: 100%;
+      padding: 0.6rem 0.9rem;
+      border: 0;
+      border-radius: 0.4rem;
+      outline: none;
+
+      font-family: 'Roboto', Helvetica, Arial, sans-serif;
+      font-size: 1.2rem;
+      line-height: 1.5rem;
+      color: #797C86;
+      box-shadow: 0 4px 12px -2px rgba(107, 117, 161, 0.2);
+
+    }
+  }
+
   .bracket-container {
     position: relative;
 
     @each $current-color in $colors-background {
       $i: index($colors-background, $current-color);
       &.lvl-#{$i} {
-        background: $current-color;
+        background: rgba(red($current-color), green($current-color), blue($current-color), 0.5);
         color: #424242;
         padding: 1.3rem 0 1.5rem 0;
       }
@@ -137,6 +163,9 @@
     }
 
     .city {
+      @media (max-width: 576px) {
+        text-align: center;
+      }
 
       .title {
         padding-bottom: 0.3rem;
