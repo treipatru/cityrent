@@ -2,9 +2,13 @@
   <div
     class="col-12"
     id="cities-cont"
+    sticky-container
   >
     <div
-      v-bind:class="['toolbar', 'grid-noGutter', {'is-fixed' : isFixed}, {'is-fixed' : searched}]"
+      v-bind:class="['toolbar', 'grid-noGutter']"
+      v-sticky
+      sticky-offset="offset"
+      sticky-side="top"
     >
       <div
         class="col-6_sm-10"
@@ -33,13 +37,13 @@
 
 
     <div
-      v-bind:class="['bracket-wrapper', {'is-fixed' : isFixed}]"
+      v-bind:class="['bracket-wrapper']"
     >
       <div
         v-bind:class="['bracket-container', 'grid', 'lvl-' + (index + 1)]"
         v-for="(bracket, index) in brackets"
         :key="index"
-        v-if="shouldRenderBracket(index)"
+        v-show="shouldRenderBracket(index)"
       >
         <div class="col-1_xs-2_sm-2">
           <h2
@@ -106,12 +110,10 @@
         this.results = results;
       });
       this.$on('updatedSearch', (str) => {
-        if (str.length === 0) {
-          this.$emit('hasSearchStr', false);
-          this.searched = false;
+        if (str.length > 0 && str.length < 3) {
+          console.log('waiting');
         } else {
-          this.$emit('hasSearchStr', true);
-          this.searched = true;
+          console.log('triggered');
         }
       });
     },
@@ -130,21 +132,10 @@
       shouldRenderBracket: function (i) {
         return this.filteredCities[i].length !== 0;
       },
-      handleScroll: _throttle(function () {
-        let vm = this;
-        let scrollPos = window.scrollY;
-        let contPos = document.getElementById('cities-cont').offsetTop;
-        if (scrollPos >= contPos) {
-          vm.isFixed = true;
-        } else {
-          vm.isFixed = false;
-        }
-      }, 5),
     },
 
     mounted: function () {
       this.$refs.searchBox.$el.focus();
-      window.addEventListener('scroll', this.handleScroll);
     },
 
     props: {
@@ -164,15 +155,8 @@
     padding: 0.5rem 0;
     margin: 0;
     height: 3.5rem;
-
-    &.is-fixed {
-      position: fixed;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background: #FAFAFC;
-      z-index: 10;
-    }
+    background: #FAFAFC;
+    width: 100%;
 
     .searchbox {
       width: 100%;
@@ -196,10 +180,6 @@
 
   .bracket-wrapper {
     margin-top: 2rem;
-
-    &.is-fixed {
-      margin-top: 5.5rem;
-    }
 
     .bracket-container {
       @each $current-color in $colors-background {
