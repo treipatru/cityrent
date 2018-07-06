@@ -10,7 +10,8 @@
   "dependencies": {
     "lodash.throttle": "^4.1.1",
     "vue": "^2.5.16",
-    "vue-fuse": "^1.5.2"
+    "vue-fuse": "^1.5.2",
+    "vue-sticky-directive": "^0.0.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.15",
