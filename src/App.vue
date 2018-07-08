@@ -8,12 +8,14 @@
       id="header"
     >
 
-      <div
-        v-bind:class="['col-6_sm-10', 'title']"
-        data-push-left="off-3_sm-1"
-      >
-        <h1>cityrent</h1>
-        <p class="tagline">Average monthly rent costs from 540 cities around the world.</p>
+      <div class="col-12 grid-middle-noGutter background-wrapper">
+        <div
+          v-bind:class="['col-6_sm-10', 'title']"
+          data-push-left="off-3_sm-1"
+        >
+          <h1>cityrent</h1>
+          <p class="tagline">Average monthly rent costs from 540 cities around the world.</p>
+        </div>
       </div>
     </header>
 
@@ -129,7 +131,13 @@
   header {
     background: no-repeat center center fixed;
     background-size: cover;
+    color: #efefff;
     height: 70vh;
+
+    .background-wrapper {
+      height: 100%;
+      background: linear-gradient(rgba(0,130,170,.2),rgba(0,130,170,1));
+    }
   }
 
   .search {
@@ -138,6 +146,7 @@
     height: 3.5rem;
     width: 100%;
     background: #FAFAFC;
+    background: rgba(0,130,170,1);
 
     .searchbox {
       width: 100%;
@@ -150,10 +159,10 @@
       font-size: 1.2rem;
       line-height: 1.5rem;
       background: transparent;
-      color: #3c3c44;
+      color: #cbcbdb;
 
       &::placeholder {
-        color: #797C86;
+        color: #cbcbdb;
       }
     }
   }
