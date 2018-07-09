@@ -47,7 +47,7 @@
           }
         }
 
-        return ['city', 'col-4_xs-12_sm-6', ('lvl-' + lvl)];
+        return ['city', 'col-3_xs-6_sm-4', ('lvl-' + lvl)];
       },
     },
 
@@ -71,23 +71,26 @@
       @each $current-color in $colors-background {
         $i: index($colors-background, $current-color);
         &.lvl-#{$i} {
-          background: rgba(red($current-color), green($current-color), blue($current-color), 0.5);
+          .title {
+            background: rgba(red($current-color), green($current-color), blue($current-color), 0.5);
+          }
         }
       }
-      padding: 1.3rem 1.5rem;
+      padding: 0.8rem 0;
       color: #424242;
 
       @media (max-width: 576px) {
-        text-align: center;
       }
 
       .title {
-        padding-bottom: 0.3rem;
+        padding: 0.3rem 0.5rem;
 
         .area {
-          font-size: 1.4rem;
+          font-size: 1rem;
+          font-weight: 500;
           padding-right: 0.3rem;
         }
+
         .cost {
           font-size: 0.8rem;
           font-weight: 300;
@@ -96,10 +99,14 @@
       }
 
       .location {
-        font-size: 0.9rem;
-        opacity: 0.6;
+        font-size: 0.8rem;
+        padding: 0.3rem 0 0 0.5rem;
 
         .country {
+          opacity: 0.4;
+        }
+        .continent {
+          opacity: 0.4;
         }
       }
     }
