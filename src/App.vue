@@ -29,8 +29,8 @@
              sticky-side="top"
         >
           <div
-            class="col-6"
-            data-push-left="off-3_sm-1"
+            class="col-6_sm-8"
+            data-push-left="off-3_sm-2"
           >
             <vue-fuse
               class="searchbox"
@@ -49,15 +49,13 @@
         </div>
       </div>
 
-      <Cities
-        :citiesData="results"
-        v-on:hasSearchStr="hasSearchStr"
-      />
+      <Cities :citiesData="results"/>
     </div>
   </div>
 </template>
 
 <script>
+  import * as popmotion from 'popmotion'
   import Cities from './components/Cities.vue';
   import json from './json/data';
 
@@ -73,10 +71,11 @@
         this.results = results;
       });
       this.$on('updatedSearch', (str) => {
-        if (str.length >= 0 && str.length < 3) {
-          this.$emit('hasSearchStr', false);
+        if (str.length >= 0 && str.length < 2) {
+          this.hasSearch = false;
         } else {
-          this.$emit('hasSearchStr', true);
+          this.hasSearch = true;
+          this.headerVisible = false;
         }
       });
     },
@@ -86,8 +85,8 @@
         citiesData: json.data,
         keys: ['area', 'continent', 'country', 'lvl'],
         results: [],
-        searched: false,
-        headerClosed: false,
+        hasSearch: false,
+        headerVisible: true,
         imgs: [
           'anthony-delanoix-28851-unsplash.jpg',
           'jesus-in-taiwan-478578-unsplash.jpg',
@@ -102,10 +101,26 @@
     },
 
     methods: {
-      hasSearchStr: function (val) {
-        this.searched = val;
-        if (val) { this.headerClosed = true}
-      }
+      animateHeader: function (str) {
+        let styler = popmotion.styler(document.querySelector('#header'));
+        const convertToVh = popmotion.transform.appendUnit("vh");
+        let fr, to;
+
+        if (str === 'close'){
+          fr = convertToVh(70);
+          to = 0;
+        } else if (str === 'open') {
+          fr = 0;
+          to = convertToVh(70);
+        }
+
+        popmotion.tween({
+          from: fr,
+          to: to,
+          duration: 450,
+          ease: popmotion.easing.anticipate,
+        }).start(styler.set('height'));
+      },
     },
 
     mounted: function () {
@@ -114,7 +129,22 @@
       h.style.backgroundImage = 'url(\'img/' +  img + '\')';
 
       this.$refs.searchBox.$el.focus();
-    }
+    },
+
+    watch: {
+      headerVisible: function (nVal, oVal) {
+        let vm = this;
+
+        if (nVal !== oVal) {
+          if (!nVal) {
+            vm.animateHeader('close');
+          } else {
+
+            vm.animateHeader('open');
+          }
+        }
+      }
+    },
   };
 </script>
 
@@ -131,12 +161,13 @@
   header {
     background: no-repeat center center fixed;
     background-size: cover;
-    color: #efefff;
+    color: #424242;
     height: 70vh;
+    margin-bottom: 1rem;
 
     .background-wrapper {
       height: 100%;
-      background: linear-gradient(rgba(0,130,170,.2),rgba(0,130,170,1));
+      background: linear-gradient(rgba(0, 0, 0, 0), rgba(250, 250, 252, 1));
     }
   }
 
@@ -146,7 +177,7 @@
     height: 3.5rem;
     width: 100%;
     background: #FAFAFC;
-    background: rgba(0,130,170,1);
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
 
     .searchbox {
       width: 100%;
@@ -159,7 +190,7 @@
       font-size: 1.2rem;
       line-height: 1.5rem;
       background: transparent;
-      color: #cbcbdb;
+      color: #777777;
 
       &::placeholder {
         color: #cbcbdb;
